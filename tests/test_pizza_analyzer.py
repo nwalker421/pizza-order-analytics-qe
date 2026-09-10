@@ -5,7 +5,7 @@ def test_normalize_toppings_sorts_toppings():
 
 result = normalize_toppings(toppings)
 
-assert result == ("mushrooms, "pepperoni")
+assert result == ("mushrooms", "pepperoni")
 
 def test_get_top_combinations_counts_identical_combinations():
 pizza_orders = [
