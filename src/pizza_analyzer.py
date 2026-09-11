@@ -9,9 +9,9 @@ def normalize_toppings(toppings):
 def get_top_combinations(pizza_orders, limit=20):
   """Return the most frequently ordered pizza topping combinations."""
 
-combinations = [
-  normalize_toppings(pizza["toppings"])
-  for pizza in pizza_orders
+  combinations = [
+    normalize_toppings(pizza["toppings"])
+    for pizza in pizza_orders
 
 ]
 
