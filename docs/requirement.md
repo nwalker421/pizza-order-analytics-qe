@@ -172,6 +172,9 @@ When no result limit is specified, then the maximum number of combinations retur
 AC-005.5 — Ranking Preservation
 The returned Top-20 result set shall preserve the ranking established under REQ-004.
 
+AC-005.6 — No Available Combinations
+Given a dataset containing no valid topping combinations, when analysis is completed, then the application shall return an empty result set without an uncontrolled application failure.
+
 REQ-006 — Produce Ranked Results
 
 Object Family: Pizza Order Analytics
