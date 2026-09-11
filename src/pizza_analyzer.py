@@ -15,6 +15,6 @@ def get_top_combinations(pizza_orders, limit=20):
 
 ]
 
-    frequently = Counter(combinations)
+  frequently = Counter(combinations)
 
     return frequency.most_common(limits)
