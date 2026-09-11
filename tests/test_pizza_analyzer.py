@@ -8,14 +8,14 @@ def test_normalize_toppings_sorts_toppings():
     assert result == ("mushrooms", "pepperoni")
 
 def test_get_top_combinations_counts_identical_combinations():
-  pizza_orders = [
-    {"toppings": ["pepperoni", "mushrooms"]},
-    {"toppings": ["mushrooms", "pepperoni"]},
-    {"toppings": ["cheese"]},
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese"]},
 
 ]
 
-  result = get_top_combinations(pizza_orders)
+    result = get_top_combinations(pizza_orders)
 
-  assert result [0] == (("mushrooms", "pepperoni"), 2)
-  assert result [1] == (("cheese",), 1)
+    assert result [0] == (("mushrooms", "pepperoni"), 2)
+    assert result [1] == (("cheese",), 1)
