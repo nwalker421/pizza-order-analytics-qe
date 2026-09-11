@@ -1,11 +1,11 @@
 from src.pizza_analyzer import normalize_toppings, get_top_combinations
 
 def test_normalize_toppings_sorts_toppings():
-  toppings = ["pepperoni", "mushrooms"]
+    toppings = ["pepperoni", "mushrooms"]
 
-  result = normalize_toppings(toppings)
+    result = normalize_toppings(toppings)
 
-  assert result == ("mushrooms", "pepperoni")
+    assert result == ("mushrooms", "pepperoni")
 
 def test_get_top_combinations_counts_identical_combinations():
   pizza_orders = [
