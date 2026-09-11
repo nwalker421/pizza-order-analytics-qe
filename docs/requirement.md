@@ -128,9 +128,22 @@ AC-004.3 — Equal Frequencies
 Given two or more topping combinations having equal frequencies, when ranking is performed, then all tied combinations shall be retained.
 
 AC-004.4 — Deterministic Tie Handling
-Given two or more topping combinations having equal frequencies, when results are generated, then the application shall apply a consistent secondary ordering so that repeated analysis of the same dataset produces the same ranking.
 
-This last AC is important for automated testing. We don't want two correct executions producing different rankings simply because two pizzas were ordered the same number of times.
+Given two or more topping combinations having equal frequencies, when results are ranked, then the application shall order the tied combinations alphabetically in ascending order based on their normalized topping combinations, ensuring repeated analysis of the same dataset produces the same ranking.
+
+For example:
+
+cheese       5
+mushrooms    5
+pepperoni    5
+
+shall be ranked:
+
+1. cheese       5
+2. mushrooms    5
+3. pepperoni    5
+
+## Testing Note: This last AC is important for automated testing. We don't want two correct executions producing different rankings simply because two pizzas were ordered the same number of times.
 
 REQ-005 — Return the Top 20 Topping Combinations
 
