@@ -65,15 +65,12 @@ AC-002.4 — Source Sequence Independence
 Given identical topping combinations occurring in different topping sequences throughout the dataset, when the dataset is analyzed, then sequence differences shall not create separate combinations.
 
 AC-002.5 — Duplicate Topping Preservation
-
 Given a valid topping combination containing the same topping more than once, when normalization occurs, then all occurrences of the topping shall be preserved.
 
 AC-002.6 — Case-Insensitive Topping Normalization
-
 Given topping values that differ only by capitalization, when normalization occurs, then the values shall be treated as the same topping.
 
 AC-002.7 — Whitespace Normalization
-
 Given topping values containing leading or trailing whitespace, when normalization occurs, then the leading or trailing whitespace shall be ignored when determining topping-combination equivalence.
 
 For example:
@@ -128,7 +125,6 @@ AC-004.3 — Equal Frequencies
 Given two or more topping combinations having equal frequencies, when ranking is performed, then all tied combinations shall be retained.
 
 AC-004.4 — Deterministic Tie Handling
-
 Given two or more topping combinations having equal frequencies, when results are ranked, then the application shall order the tied combinations alphabetically in ascending order based on their normalized topping combinations, ensuring repeated analysis of the same dataset produces the same ranking.
 
 For example:
@@ -201,6 +197,13 @@ Displayed rankings shall begin at 1 and proceed sequentially through the number 
 
 AC-006.5 — Maximum Displayed Results
 Under the default configuration, the displayed result shall contain no more than 20 topping combinations.
+
+AC-006.6 — No Results Display
+Given that no valid topping combinations are available for reporting, when ranked results are produced, the application shall display a clear message indicating that no topping combinations are available rather than displaying an empty or misleading ranked list.
+
+For example:
+
+No topping combinations available for analysis.
 
 For example, the output structure may be:
 For example, the output structure may be:
