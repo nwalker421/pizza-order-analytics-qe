@@ -64,6 +64,24 @@ Given a valid combination containing multiple toppings, when normalization occur
 AC-002.4 — Source Sequence Independence
 Given identical topping combinations occurring in different topping sequences throughout the dataset, when the dataset is analyzed, then sequence differences shall not create separate combinations.
 
+AC-002.5 — Duplicate Topping Preservation
+
+Given a valid topping combination containing the same topping more than once, when normalization occurs, then all occurrences of the topping shall be preserved.
+
+AC-002.6 — Case-Insensitive Topping Normalization
+
+Given topping values that differ only by capitalization, when normalization occurs, then the values shall be treated as the same topping.
+
+AC-002.7 — Whitespace Normalization
+
+Given topping values containing leading or trailing whitespace, when normalization occurs, then the leading or trailing whitespace shall be ignored when determining topping-combination equivalence.
+
+For example:
+
+"pepperoni"
+" pepperoni"
+"pepperoni "
+
 REQ-003 — Calculate Topping Combination Frequency
 
 Object Family: Pizza Order Analytics
