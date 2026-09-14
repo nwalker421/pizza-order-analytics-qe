@@ -107,3 +107,10 @@ def test_normalize_toppings_preserves_single_topping():
 
     result = normalize_toppings(toppings)
     assert result == ("cheese",)
+
+def test_normalize_toppings_preserves_all_toppings():
+    toppings = ["pepperoni", "mushrooms", "onions"]
+
+    result = normalize_toppings(toppings)
+
+    asserr result == ("mushrooms", "onions", "pepperoni")
