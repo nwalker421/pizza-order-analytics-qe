@@ -60,3 +60,13 @@ def test_filter_valid_orders_excludes_missing_toppings():
     result = filter_valid_orders(pizza_orders)
 
     assert result == []
+
+def test_filter_valid_orders_excludes_invalid_toppings_type():
+    pizza_orders = [
+        {"toppings": "pepperoni"}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
