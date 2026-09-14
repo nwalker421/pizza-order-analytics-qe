@@ -24,6 +24,6 @@ def filter_valid_orders(pizza_orders):
         if len(toppings) ==0:
           continue
 
-        valid_orders.apped(pizza)
+        valid_orders.append(pizza)
 
     return valid_orders
