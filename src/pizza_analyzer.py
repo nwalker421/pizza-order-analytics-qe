@@ -3,7 +3,7 @@
 from collections import Counter
 
 def normalize_toppings(toppings):
-    normalized = [topping.strip().lower() for topping in toppings)
+    normalized = [topping.strip().lower() for topping in toppings]
     return tuple(sorted(normalized))
 
 def get_top_combinations(pizza_orders, limit=20):
