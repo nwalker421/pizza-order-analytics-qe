@@ -113,4 +113,4 @@ def test_normalize_toppings_preserves_all_toppings():
 
     result = normalize_toppings(toppings)
 
-    asserr result == ("mushrooms", "onions", "pepperoni")
+    assert result == ("mushrooms", "onions", "pepperoni")
