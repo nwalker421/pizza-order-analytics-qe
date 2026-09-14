@@ -1,4 +1,4 @@
-from src.pizza_analyzer import normalize_toppings, get_top_combinations
+from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders
 
 def test_normalize_toppings_sorts_toppings():
     toppings = ["pepperoni", "mushrooms"]
