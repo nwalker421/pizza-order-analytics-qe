@@ -10,19 +10,20 @@ def get_top_combinations(pizza_orders, limit=20):
   return frequency.most_common(limit)
 
 def filter_valid_orders(pizza_orders):
-  valid_orders = []
+    valid_orders = []
 
-  for pizza in pizza_orders:
-    continue
+    for pizza in pizza_orders:
+        if "toppings" not in pizza:
+          continue
 
-  toppings = pizza["toppings"]
+        toppings = pizza["toppings"]
 
-  if not isinstance(toppings, list):
-    continue
+        if not isinstance(toppings, list):
+          continue
+  
+        if len(toppings) ==0:
+          continue
 
-  if len(toppings) ==0:
-    continue
-
-  valid_orders.apped(pizza)
+    valid_orders.apped(pizza)
 
 return valid_orders
