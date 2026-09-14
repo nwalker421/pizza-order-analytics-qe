@@ -101,3 +101,9 @@ def test_normalize_toppings_handles_different_order():
     result_two = normalize_toppings(second)
 
     assert result_one == result_two
+
+def test_normalize_toppings_preserves_single_topping():
+    toppings = ["cheese"]
+
+    result = normalize_toppings(toppings)
+    assert result == ("cheese",)
