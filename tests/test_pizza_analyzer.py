@@ -132,3 +132,13 @@ def test_normalize_toppings_preserves_duplicate_toppings():
     result = normalize_toppings(toppings)
 
     assert result == ("mushrooms", "pepperoni", "pepperoni")
+
+def test_normalize_toppings_handles_case_and_whitespace():
+    first = ["Pepperoni", "MUSHROOMS"]
+    second = ["pepperoni", "mushrooms"]
+
+    result_one = normalize_toppings(first)
+    result_two = normalize_toppings(second)
+
+    assert result_one == result_two
+    assert result_one == ("mushrooms", "pepperoni")
