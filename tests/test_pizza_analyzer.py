@@ -19,3 +19,14 @@ def test_get_top_combinations_counts_identical_combinations():
 
     assert result [0] == (("mushrooms", "pepperoni"), 2)
     assert result [1] == (("cheese",), 1)
+
+def test_filter_valid_orders_accepts_valid_orders():
+    pizza_orders = [
+        {"toppings": ["pepperoni",]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese"]},
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == pizza_orders
