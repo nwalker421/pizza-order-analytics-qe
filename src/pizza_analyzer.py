@@ -9,10 +9,6 @@ def get_top_combinations(pizza_orders, limit=20):
   frequency = Counter(combinations)
   return frequency.most_common(limit)
 
-def get_top_combinations(pizza_orders, limit=20):
-  combinations = [normalize_toppings(pizza["toppings"]) for pizza in pizza_orders]
-  frequency = Counter(combinations)
-  return frequency.most_common(limit)
 
 def filter_valid_orders(pizza_orders):
     valid_orders = []
@@ -29,6 +25,7 @@ def filter_valid_orders(pizza_orders):
         if len(toppings) ==0:
           continue
 
-        valid_orders.apped(pizza)
+        valid_orders.append(pizza)
+
 
     return valid_orders

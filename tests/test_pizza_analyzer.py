@@ -1,4 +1,4 @@
-from src.pizza_analyzer import normalize_toppings, get_top_combinations
+from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders
 
 def test_normalize_toppings_sorts_toppings():
     toppings = ["pepperoni", "mushrooms"]
@@ -19,3 +19,76 @@ def test_get_top_combinations_counts_identical_combinations():
 
     assert result [0] == (("mushrooms", "pepperoni"), 2)
     assert result [1] == (("cheese",), 1)
+
+def test_filter_valid_orders_accepts_valid_orders():
+    pizza_orders = [
+        {"toppings": ["pepperoni",]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese"]},
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == pizza_orders
+
+def test_filter_valid_orders_accepts_single_order():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == pizza_orders
+
+def test_filter_valid_orders_excludes_empty_toppings():
+    pizza_orders = [
+        {"toppings": []}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
+
+def test_filter_valid_orders_excludes_missing_toppings():
+    pizza_orders = [
+        {"orderId": 1001}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
+
+def test_filter_valid_orders_excludes_invalid_toppings_type():
+    pizza_orders = [
+        {"toppings": "pepperoni"}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
+
+
+def test_filter_valid_orders_processes_mixed_dataset():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"orderId": 1001},
+        {"toppings": ["cheese"]},
+        {"toppings": "sausage"},
+        {"toppings": ["onions"]},
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["onions"]},
+
+    ]
