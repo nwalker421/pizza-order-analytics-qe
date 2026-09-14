@@ -40,3 +40,13 @@ def test_filter_valid_orders_accepts_single_order():
     result = filter_valid_orders(pizza_orders)
 
     assert result == pizza_orders
+
+def test_filter_valid_orders_excludes_empty_toppings():
+    pizza_orders = [
+        {"toppings": []}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
