@@ -70,3 +70,25 @@ def test_filter_valid_orders_excludes_invalid_toppings_type():
     result = filter_valid_orders(pizza_orders)
 
     assert result == []
+
+
+def test_filter_valid_orders_processes_mixed_dataset():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]}
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"orderId": 1001},
+        {"toppings": ["cheese"]},
+        {"toppings": "sausage"),
+        {"toppings": ["onions"]},
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["onions"]},
+
+    ]
