@@ -92,3 +92,12 @@ def test_filter_valid_orders_processes_mixed_dataset():
         {"toppings": ["onions"]},
 
     ]
+
+def test_normalize_toppings_handles_different_order():
+    first = ["pepperoni", "mushrooms"]
+    second = ["mushrooms", "pepperoni"]
+
+    result_one = normalize_toppings(first)
+    result_two = normalize_toppings(second)
+
+    assert result_one == result_two
