@@ -125,3 +125,10 @@ def test_normalize_toppings_handles_multiple_sequences():
     result_three = normalize_toppings(third)
 
     assert result_one == result_two == result_three
+
+def test_normalize_toppings_preserves_duplicate_toppings():
+    toppings = ["pepperoni", "pepperoni", "mushrooms"]
+
+    result = normalize_toppings(toppings)
+
+    assert result == ("mushrooms", "pepperoni", "pepperoni")
