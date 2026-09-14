@@ -50,3 +50,13 @@ def test_filter_valid_orders_excludes_empty_toppings():
     result = filter_valid_orders(pizza_orders)
 
     assert result == []
+
+def test_filter_valid_orders_excludes_missing_toppings():
+    pizza_orders = [
+        {"orderId": 1001}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == []
