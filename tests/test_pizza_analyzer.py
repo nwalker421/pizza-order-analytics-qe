@@ -30,3 +30,13 @@ def test_filter_valid_orders_accepts_valid_orders():
     result = filter_valid_orders(pizza_orders)
 
     assert result == pizza_orders
+
+def test_filter_valid_orders_accepts_single_order():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]}
+
+    ]
+
+    result = filter_valid_orders(pizza_orders)
+
+    assert result == pizza_orders
