@@ -78,7 +78,7 @@ def test_filter_valid_orders_processes_mixed_dataset():
         {"toppings": ["mushrooms", "pepperoni"]},
         {"orderId": 1001},
         {"toppings": ["cheese"]},
-        {"toppings": "sausage"),
+        {"toppings": "sausage")},
         {"toppings": ["onions"]},
 
     ]
