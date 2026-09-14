@@ -92,3 +92,53 @@ def test_filter_valid_orders_processes_mixed_dataset():
         {"toppings": ["onions"]},
 
     ]
+
+def test_normalize_toppings_handles_different_order():
+    first = ["pepperoni", "mushrooms"]
+    second = ["mushrooms", "pepperoni"]
+
+    result_one = normalize_toppings(first)
+    result_two = normalize_toppings(second)
+
+    assert result_one == result_two
+
+def test_normalize_toppings_preserves_single_topping():
+    toppings = ["cheese"]
+
+    result = normalize_toppings(toppings)
+    assert result == ("cheese",)
+
+def test_normalize_toppings_preserves_all_toppings():
+    toppings = ["pepperoni", "mushrooms", "onions"]
+
+    result = normalize_toppings(toppings)
+
+    assert result == ("mushrooms", "onions", "pepperoni")
+
+def test_normalize_toppings_handles_multiple_sequences():
+    first = ["pepperoni", "mushrooms", "onions"]
+    second = ["onions", "pepperoni", "mushrooms"]
+    third = ["mushrooms", "onions", "pepperoni"]
+
+    result_one = normalize_toppings(first)
+    result_two = normalize_toppings(second)
+    result_three = normalize_toppings(third)
+
+    assert result_one == result_two == result_three
+
+def test_normalize_toppings_preserves_duplicate_toppings():
+    toppings = ["pepperoni", "pepperoni", "mushrooms"]
+
+    result = normalize_toppings(toppings)
+
+    assert result == ("mushrooms", "pepperoni", "pepperoni")
+
+def test_normalize_toppings_handles_case_and_whitespace():
+    first = ["Pepperoni", "MUSHROOMS"]
+    second = ["pepperoni", "mushrooms"]
+
+    result_one = normalize_toppings(first)
+    result_two = normalize_toppings(second)
+
+    assert result_one == result_two
+    assert result_one == ("mushrooms", "pepperoni")
