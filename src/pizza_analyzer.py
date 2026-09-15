@@ -7,7 +7,8 @@ def normalize_toppings(toppings):
     return tuple(sorted(normalized))
 
 def get_top_combinations(pizza_orders, limit=20):
-    combinations = [normalize_toppings(pizza["toppings"]) for pizza in pizza_orders]
+    valid_orders = filter_valid_orders(pizza_orders)
+    combinations = [normalize_toppings(pizza["toppings"]) for pizza in valid_orders]
     frequency = Counter(combinations)
     return frequency.most_common(limit)
 
