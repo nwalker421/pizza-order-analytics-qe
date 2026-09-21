@@ -232,7 +232,7 @@ def test_get_top_combinations_excludes_invalid_orders():
         {"toppings": ["pepperoni", "mushrooms"]},
         {"toppings": ["mushrooms", "pepperoni"]},
         {},
-        {"toppings": "cheese"},"
+        {"toppings": "cheese"},
         {"toppings": []}
 
     ]
