@@ -216,3 +216,13 @@ def test_get_top_combinations_preserves_duplicate_toppings():
         (("pepperoni", ), 1)
         
     ]
+
+def test_get_top_combinations_with_one_valid_order():
+    pizza_orders = [
+        {"toppings": ["sausage", "onions"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("onions", "sausage"), 1)]
