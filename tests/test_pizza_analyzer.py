@@ -144,7 +144,7 @@ def test_normalize_toppings_handles_case_and_whitespace():
     assert result_one == ("mushrooms", "pepperoni")
 
 def test_get_top_combinations_counts_single_occurence():
-    pizz_orders = [
+    pizza_orders = [
         {"toppings": ["pepperoni", "mushrooms"]}
 
     ]
