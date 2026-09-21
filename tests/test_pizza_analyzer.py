@@ -142,3 +142,101 @@ def test_normalize_toppings_handles_case_and_whitespace():
 
     assert result_one == result_two
     assert result_one == ("mushrooms", "pepperoni")
+
+def test_get_top_combinations_counts_single_occurence():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 1)]
+
+
+def test_get_top_combinations_counts_multiple_occurenes():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 3)]
+
+def test_get_top_combinations_counts_distinct_combinations():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni", "pepperoni"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese", "cheese"]},
+        {"toppings": ["onions"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert dict(result) == {
+        ("mushrooms", "pepperoni"): 3,
+        ("cheese",): 2,
+        ("pepperoni", "pepperoni"): 1,
+        ("cheese", "cheese"): 1,
+        ("onions",): 1
+        
+    }
+            
+def test_get_top_combinations_counts_normalized_variations():
+    pizza_orders = [
+        {"toppings": ["Pepperoni", "Mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["PEPPERONI", "MUSHROOMS"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+    assert result == [(("mushrooms", "pepperoni"), 3)]
+
+
+def test_get_top_combinations_preserves_duplicate_toppings():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni", "pepperoni"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+    assert result == [
+        (("pepperoni", "pepperoni"), 2),
+        (("pepperoni", ), 1)
+        
+    ]
+
+def test_get_top_combinations_with_one_valid_order():
+    pizza_orders = [
+        {"toppings": ["sausage", "onions"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("onions", "sausage"), 1)]
+
+def test_get_top_combinations_excludes_invalid_orders():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {},
+        {"toppings": "cheese"},
+        {"toppings": []}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 2)]
