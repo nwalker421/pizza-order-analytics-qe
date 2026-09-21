@@ -252,7 +252,7 @@ def test_get_top_combinations_ranks_by_descending_frequency():
 
     ]
 
-    result = get_top_combinations_(pizza_orders)
+    result = get_top_combinations(pizza_orders)
 
     assert result == [
         (("cheese",), 3),
