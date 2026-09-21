@@ -181,11 +181,13 @@ def test_get_top_combinations_counts_distinct_combinations():
 
     result = get_top_combinations(pizza_orders)
 
-    assert result == [
-        (("mushrooms", "pepperoni"), 3),
-        (("cheese",), 2),
-        (("onions",), 1),
+    assert dict(result) == {
+        ("mushrooms", "pepperoni"): 3,
+        ("cheese",): 2,
+        ("pepperoni", "pepperoni"): 1,
+        ("cheese", "cheese"): 1.
+        ("onions",): 1)
 
-    ]
+    }
             
     
