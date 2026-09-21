@@ -32,3 +32,14 @@ def filter_valid_orders(pizza_orders):
 
 
     return valid_orders
+
+def test_get_top_combinations_counts_single_occurence():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 1]
+    
