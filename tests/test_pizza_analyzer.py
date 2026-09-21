@@ -200,4 +200,18 @@ def test_get_top_combinations_counts_normalized_variations():
 
     result = get_top_combinations(pizza_orders)
     assert result == [(("mushrooms", "pepperoni"), 3)]
+t
+def test_get_top_combinations_preserves_duplicate_toppings():
+    pizza_orders
+        {"toppings": ["pepperoni", "pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni", "pepperoni"]}
 
+    ]
+
+    result = get_top_combinations(pizza_orders)
+    assert result == [
+        (("pepperoni", "pepperoni"), 2),
+        (("pepperoni", ), 1)
+        
+    ]
