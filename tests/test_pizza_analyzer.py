@@ -232,7 +232,7 @@ def test_get_top_combinations_excludes_invalid_orders():
         {"toppings": ["pepperoni", "mushrooms"]},
         {"toppings": ["mushrooms", "pepperoni"]},
         {},
-        {"toppings": "cheese"},
+        {"toppings": "cheese"},"
         {"toppings": []}
 
     ]
@@ -240,3 +240,23 @@ def test_get_top_combinations_excludes_invalid_orders():
     result = get_top_combinations(pizza_orders)
 
     assert result == [(("mushrooms", "pepperoni"), 2)]
+
+def test_get_top_combinations_ranks_by_descending_frequency():
+    pizza_orders = [
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]}
+
+    ]
+
+    result = get_top_combinations_(pizza_orders)
+
+    assert result == [
+        (("cheese",), 3),
+        (("pepperoni",), 2),
+        (("mushrooms",), 1)
+
+    ]
