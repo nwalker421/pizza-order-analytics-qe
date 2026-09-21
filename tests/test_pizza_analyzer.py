@@ -151,4 +151,4 @@ def test_get_top_combinations_counts_single_occurence():
 
     result = get_top_combinations(pizza_orders)
 
-    assert result == [(("mushrooms". "pepperoni"), 1)]
+    assert result == [(("mushrooms", "pepperoni"), 1)]
