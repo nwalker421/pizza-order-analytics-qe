@@ -226,3 +226,17 @@ def test_get_top_combinations_with_one_valid_order():
     result = get_top_combinations(pizza_orders)
 
     assert result == [(("onions", "sausage"), 1)]
+
+def test_get_top_combinations_excludes_invalid_orders():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {},
+        {"toppings": "cheese"},
+        {"toppings": []}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 2)]
