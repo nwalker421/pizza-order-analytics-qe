@@ -185,7 +185,7 @@ def test_get_top_combinations_counts_distinct_combinations():
         ("mushrooms", "pepperoni"): 3,
         ("cheese",): 2,
         ("pepperoni", "pepperoni"): 1,
-        ("cheese", "cheese"): 1.
+        ("cheese", "cheese"): 1,
         ("onions",): 1)
 
     }
