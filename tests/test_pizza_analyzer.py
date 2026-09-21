@@ -152,3 +152,19 @@ def test_get_top_combinations_counts_single_occurence():
     result = get_top_combinations(pizza_orders)
 
     assert result == [(("mushrooms", "pepperoni"), 1)]
+
+
+def test_get_top_combinations_counts_multiple_occurenes():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms", "pepperoni"), 3)]
+
+
+    
