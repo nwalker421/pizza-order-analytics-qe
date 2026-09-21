@@ -142,3 +142,13 @@ def test_normalize_toppings_handles_case_and_whitespace():
 
     assert result_one == result_two
     assert result_one == ("mushrooms", "pepperoni")
+
+def test_get_top_combinations_counts_single_occurence():
+    pizz_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [(("mushrooms". "pepperoni"), 1)]
