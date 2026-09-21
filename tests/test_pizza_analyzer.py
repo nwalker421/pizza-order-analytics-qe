@@ -190,4 +190,14 @@ def test_get_top_combinations_counts_distinct_combinations():
         
     }
             
-    
+def test_get_top_combinations_counts_normalized_variations():
+    pizza_orders = [
+        {"toppings": ["Pepperoni", "Mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["PEPPERONI", "MUSHROOMS"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+    assert results == [(("mushrooms", "pepperoni"), 3)]
+
