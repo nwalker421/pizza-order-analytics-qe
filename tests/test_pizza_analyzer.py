@@ -170,7 +170,9 @@ def test_get_top_combinations_counts_distinct_combinations():
     pizza_orders = [
         {"toppings": ["pepperoni", "mushrooms"]},
         {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni", "pepperoni"]},
         {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["cheese", "cheese"]},
         {"toppings": ["onions"]},
         {"toppings": ["cheese"]},
         {"toppings": ["pepperoni", "mushrooms"]}
@@ -179,7 +181,7 @@ def test_get_top_combinations_counts_distinct_combinations():
 
     result = get_top_combinations(pizza_orders)
 
-    assert == [
+    assert result == [
         (("mushrooms", "pepperoni"), 3),
         (("cheese",), 2),
         (("onions",), 1),
