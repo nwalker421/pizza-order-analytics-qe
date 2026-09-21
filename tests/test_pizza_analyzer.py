@@ -281,7 +281,7 @@ def test_get_top_combinations_ranks_ties_alphabetically():
 
     ]
 
-def test_get_top_combinations_ranks_multi-topping_ties_alphabetically():
+def test_get_top_combinations_ranks_multi_topping_ties_alphabetically():
     pizza_orders = [
         {"toppings": ["pepperoni", "mushrooms"]},
         {"toppings": ["sausage", "onions"]},
