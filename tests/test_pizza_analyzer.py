@@ -260,3 +260,23 @@ def test_get_top_combinations_ranks_by_descending_frequency():
         (("mushrooms",), 1)
 
     ]
+
+def test_get_top_combinations_rank_ties_alphabetically():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]} 
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("cheese",), 2),
+        (("mushrooms",), 2),
+        (("pepperoni",), 2)
+
+    ]
