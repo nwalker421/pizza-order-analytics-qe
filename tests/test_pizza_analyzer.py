@@ -199,5 +199,5 @@ def test_get_top_combinations_counts_normalized_variations():
     ]
 
     result = get_top_combinations(pizza_orders)
-    assert results == [(("mushrooms", "pepperoni"), 3)]
+    assert result == [(("mushrooms", "pepperoni"), 3)]
 
