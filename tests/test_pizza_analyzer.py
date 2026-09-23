@@ -364,3 +364,24 @@ def test_get_combinations_ranks_after_normalization():
 
     ]
 
+def test_get_combinations_returns_all_when_fewer_than_20():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["sausage"]}
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 3),
+        (("cheese",), 2),
+        (("mushrooms",), 2),
+        (("sausage",), 1),
+    ]
+
