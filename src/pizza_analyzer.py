@@ -10,7 +10,7 @@ def get_top_combinations(pizza_orders, limit=20):
     valid_orders = filter_valid_orders(pizza_orders)
     combinations = [normalize_toppings(pizza["toppings"]) for pizza in valid_orders]
     frequency = Counter(combinations)
-    return frequency.most_common(limit)
+    return sorted(frequency.items(), key=lambda item: (-item[1], item[0]))[:limit]
 
 
 def filter_valid_orders(pizza_orders):

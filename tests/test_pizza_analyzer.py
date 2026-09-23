@@ -240,3 +240,128 @@ def test_get_top_combinations_excludes_invalid_orders():
     result = get_top_combinations(pizza_orders)
 
     assert result == [(("mushrooms", "pepperoni"), 2)]
+
+def test_get_top_combinations_ranks_by_descending_frequency():
+    pizza_orders = [
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("cheese",), 3),
+        (("pepperoni",), 2),
+        (("mushrooms",), 1)
+
+    ]
+
+def test_get_top_combinations_ranks_ties_alphabetically():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["cheese"]} 
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("cheese",), 2),
+        (("mushrooms",), 2),
+        (("pepperoni",), 2)
+
+    ]
+
+def test_get_top_combinations_ranks_multi_topping_ties_alphabetically():
+    pizza_orders = [
+        {"toppings": ["pepperoni", "mushrooms"]},
+        {"toppings": ["sausage", "onions"]},
+        {"toppings": ["cheese", "mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["onions", "sausage"]},
+        {"toppings": ["mushrooms", "cheese"]} 
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("cheese", "mushrooms"), 2),
+        (("mushrooms", "pepperoni"), 2),
+        (("onions", "sausage"), 2)
+
+    ]
+
+def test_get_top_combinations_priorities_frequency_over_alphabetical_order():
+    pizza_orders = [
+        {"toppings": ["apple"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["cheese"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 3),
+        (("cheese",), 2),
+        (("apple",), 1)
+
+    ]
+
+def test_get_combinations_ranks_mixed_frequencies_and_ties():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["sausage"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 3),
+        (("cheese",), 2),
+        (("mushrooms",), 2),
+        (("sausage",), 1)
+
+    ]
+
+def test_get_combinations_ranks_after_normalization():
+    pizza_orders = [
+        {"toppings": ["Pepperoni", "Mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["PEPPERONI", "MUSHROOMS"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["Cheese"]},
+        {"toppings": ["sausage"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("mushrooms", "pepperoni",), 3),
+        (("cheese",), 2),
+        (("sausage",), 1)
+
+    ]
+
+
