@@ -240,3 +240,27 @@ def test_get_top_combinations_excludes_invalid_orders():
     result = get_top_combinations(pizza_orders)
 
     assert result == [(("mushrooms", "pepperoni"), 2)]
+
+def test_get_top_combinations_returns_all_when_fewer_than_20():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["sausage"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 2),
+        (("cheese",), 2),
+        (("mushrooms",), 1),
+        (("sausage",), 1)
+
+    ]
+    
+            
+            
