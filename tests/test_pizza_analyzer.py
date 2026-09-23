@@ -322,6 +322,7 @@ def test_get_top_combinations_priorities_frequency_over_alphabetical_order():
     ]
 
 def test_get_combinations_ranks_mixed_frequencies_and_ties():
+def test_get_top_combinations_returns_all_when_fewer_than_20():
     pizza_orders = [
         {"toppings": ["pepperoni"]},
         {"toppings": ["cheese"]},
@@ -364,4 +365,5 @@ def test_get_combinations_ranks_after_normalization():
 
     ]
 
-
+            
+            
