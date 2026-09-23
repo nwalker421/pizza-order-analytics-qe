@@ -320,3 +320,27 @@ def test_get_top_combinations_priorities_frequency_over_alphabetical_order():
         (("apple",), 1)
 
     ]
+
+def test_get_combinations_ranks_mixed_frequencies_and_ties():
+    pizza_orders = [
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["mushrooms"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["sausage"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 3),
+        (("cheese",), 2),
+        (("mushrooms",), 2,
+         (("sausage",), 1
+
+          ]
+    
