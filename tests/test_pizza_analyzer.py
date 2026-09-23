@@ -340,7 +340,7 @@ def test_get_combinations_ranks_mixed_frequencies_and_ties():
         (("pepperoni",), 3),
         (("cheese",), 2),
         (("mushrooms",), 2,
-        (("sausage",), 1
+        (("sausage",), 1)
 
     ]
     
