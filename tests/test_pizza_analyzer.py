@@ -300,3 +300,23 @@ def test_get_top_combinations_ranks_multi_topping_ties_alphabetically():
         (("onions", "sausage"), 2)
 
     ]
+
+def test_get_top_combinations_priorities_frequency_over_alphabetical_order():
+    pizza_orders = [
+        {"toppings": ["apple"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["pepperoni"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["cheese"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("pepperoni",), 3),
+        (("cheese",), 2),
+        (("apple",), 1)
+
+    ]
