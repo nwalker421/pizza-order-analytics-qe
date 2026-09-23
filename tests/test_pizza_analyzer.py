@@ -358,10 +358,10 @@ def test_get_combinations_ranks_after_normalization():
     result = get_top_combinations(pizza_orders)
 
     assert result == [
-        (("mushrooms", "pepperoni"), 3),
-        (("cheese",) 2),
-        (("sausage",) 1)
+        (("mushrooms", "pepperoni",), 3),
+        (("cheese",), 2),
+        (("sausage",), 1)
 
     ]
-    
-        
+
+
