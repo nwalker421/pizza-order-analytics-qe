@@ -343,4 +343,25 @@ def test_get_combinations_ranks_mixed_frequencies_and_ties():
         (("sausage",), 1)
 
     ]
+
+def test_get_combinations_ranks_after_normalization():
+    pizza_orders = [
+        {"toppings": ["Pepperoni", "Mushrooms"]},
+        {"toppings": ["mushrooms", "pepperoni"]},
+        {"toppings": ["PEPPERONI", "MUSHROOMS"]},
+        {"toppings": ["cheese"]},
+        {"toppings": ["Cheese"]},
+        {"toppings": ["sausage"]}
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert result == [
+        (("mushrooms", "pepperoni"), 3),
+        (("cheese",) 2),
+        (("sausage",) 1)
+
+    ]
     
+        
