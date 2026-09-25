@@ -421,7 +421,7 @@ def test_get_combinations_applies_default_limit_of_20():
     ]
 
 #Call function without supplying a limit
-result = get_top_combinations(pizza_order)
+result = get_top_combinations(pizza_orders)
 
 #Verify the default maximum is 20
 assert len(result) == 20
