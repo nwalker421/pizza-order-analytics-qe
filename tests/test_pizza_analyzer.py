@@ -397,3 +397,17 @@ def test_get_combination_returns_top_20_from_21_unique():
     assert len(result) == 20
     assert (("topping20",), 1) in result
     assert (("toppings21",), 1) not in result
+
+def test_get_combination_returnss_all_19_unique():
+    pizza_orders = [
+        {"toppings": [f"topping{i:02d}"]}
+        for i in range(1, 20)
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert len(result) == 19
+    assert (("topping01",), 1) in result
+    assert (("toppings19",), 1) not in result
+    assert (("toppings20",), 1) not in result
