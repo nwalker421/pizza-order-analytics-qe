@@ -387,7 +387,7 @@ def test_get_combinations_returns_all_when_fewer_than_20():
 
 def test_get_combination_returns_top_20_from_21_unique():
     pizza_orders = [
-        {"toppings": [f"topping{i}"]}
+        {"toppings": [f"topping{i:02d)"}
         for i in range(1,22)
 
     ]
@@ -395,3 +395,5 @@ def test_get_combination_returns_top_20_from_21_unique():
     result = get_top_combinations(pizza_orders)
 
     assert len(result) == 20
+    assert (("topping20",), 1) in result
+    assert (("toppings21",), 1) not in result
