@@ -385,3 +385,13 @@ def test_get_combinations_returns_all_when_fewer_than_20():
         (("sausage",), 1),
     ]
 
+def test_get_combination_returns_top_20_from_21_unique():
+    pizza_orders = [
+        {"toppings": [f"topping{i}"]}
+        for i in range(1,22)
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert len(result) == 20
