@@ -411,3 +411,17 @@ def test_get_combination_returnss_all_19_unique():
     assert (("topping01",), 1) in result
     assert (("toppings19",), 1) not in result
     assert (("toppings20",), 1) not in result
+
+#TC-029 Apply default result time of 20
+def test_get_combinations_applies_default_limit_of_20():
+    pizza_orders = [
+        {"toppings":[f"topping{i:02d}"]}
+        for i in range(1, 26)
+
+    ]
+
+#Call function without supplying a limit
+result = get_top_combinations(pizza_order)
+
+#Verify the default maximum is 20
+assert len(result) == 20
