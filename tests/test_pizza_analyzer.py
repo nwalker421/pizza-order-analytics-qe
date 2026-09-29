@@ -502,7 +502,7 @@ def test_get_combinations_returns_one_when_only_one_exits():
 def test_get_combinations_return_empty_results_when_no_valid_combinations_exist():
     pizza_orders = []
 
-    result = get_top_combinations_(pizza_orders)
+    result = get_top_combinations(pizza_orders)
 
     #Verify no combinations are returned
     assert result == []
