@@ -469,7 +469,7 @@ def test_get_combinations_preserve_ranking_within_top_20():
 
     #Expected ranking before limiting
     #topping25, topping24,...topping06
-    expected = [
+    expected_top_20 = [
         ((f"topping{i:02d}",), i)
         for i in range(25, 5, -1)
 
