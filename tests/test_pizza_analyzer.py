@@ -438,7 +438,7 @@ def test_get_combinations_select_correct_top_20_from_50():
             pizza_orders.append({"toppings": [f"topping{i:02d}"]})
 
     #Reverse the source order so results cannot depend on encounter order
-    pizza_ordersreverse()
+    pizza_orders.reverse()
 
     result = get_top_combinations(pizza_orders)
 
