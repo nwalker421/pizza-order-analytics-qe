@@ -33,6 +33,10 @@ def filter_valid_orders(pizza_orders):
 
     return valid_orders
 
+def format_combination_result(combination, count):
+    toppings = ", ".join(combination)
+    return f"{toppings} - {count}"
+
 def test_get_top_combinations_counts_single_occurence():
     pizza_orders = [
         {"toppings": ["pepperoni", "mushrooms"]}
