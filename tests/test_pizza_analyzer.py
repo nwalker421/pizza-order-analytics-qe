@@ -543,7 +543,7 @@ def test_format_combination_result_displays_complete_topping_combination():
 
     assert result == "mushrooms, pepperoni - 3"
 
-#TC-066 Display calculated order frequency
+#TC-036 Display calculated order frequency
 def test_format_combination_result_displays_calculated_order_frequency():
     combination = ("mushrooms", "pepperoni")
     count = 27
@@ -551,3 +551,25 @@ def test_format_combination_result_displays_calculated_order_frequency():
     result = format_combination_result(combination, count)
 
     assert result == "mushrooms, pepperoni - 27"
+
+TC-037 Display sequential rankings beginning at 1
+def test_format_combination_result_displays_sequential_rankings():
+    combinations = [
+        (("pepperoni",), 27),
+        (("cheese",), 24),
+        (("mushrooms",), 19),
+
+    ]
+
+    results = [
+        format_combination_result(combination, count, rank)
+        for rank, (combination, count) in enumerate(combinations, start=1)
+
+    ]
+
+    assert results == [
+        "1. pepperoni - 27",
+        "2. cheese - 24",
+        "3. mushrooms - 19",
+
+    ]
