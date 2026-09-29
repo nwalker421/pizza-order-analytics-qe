@@ -453,3 +453,27 @@ def test_get_combinations_select_correct_top_20_from_50():
 ]
 
     assert result == expected
+
+
+#TC-031 Preserve ranking within Top-20 results
+def test_get_combinations_preserve_ranking_within_top_20():
+    pizza_orders =[]
+
+    #Create 25 unique combinations with known frequencies
+    #topping01 appears once, topping02 twice,...topping25 twenty-five times
+    for i in range(1, 26):
+        for _ in range(i):
+            pizza_orders.append({"toppings": [f"topping{i:02d}"]})
+
+    result = get_top_combinations(pizza_orders)
+
+    #Expected ranking before limiting
+    #topping25, topping24,...topping06
+    expected = [
+        ((f"topping{i:02d}",), i)
+        for i in range(25, 5, -1)
+
+    ]
+
+    #Verify the top-20 limit preserves the established ranking
+    assert result == expected_top_20
