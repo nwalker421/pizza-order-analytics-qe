@@ -496,4 +496,18 @@ def test_get_combinations_returns_one_when_only_one_exits():
         (("pepperoni",), 10)
 
     ]
+
+
+#TC-033 Return empty result when no valid combinations exist
+def test_get_combinations_return_empty_results_when_no_valid_combinations_exist():
+    pizza_orders = []
+
+    result = get_top_combinations_(pizza_orders)
+
+    #Verify no combinations are returned
+    assert result == []
+
+    #Verify the result contains zero items
+    assert len(result) == 0
+
     
