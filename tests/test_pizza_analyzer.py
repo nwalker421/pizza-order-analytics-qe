@@ -541,4 +541,4 @@ def test_format_combination_result_displays_complete_topping_combination():
 
     result = format_combination_result(combination, count)
 
-    assert result == "mushrooms, pepperoni" - 3"
+    assert result == "mushrooms, pepperoni - 3"
