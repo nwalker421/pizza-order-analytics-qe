@@ -1,4 +1,4 @@
-from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders
+from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders, format_combination_result
 
 def test_normalize_toppings_sorts_toppings():
     toppings = ["pepperoni", "mushrooms"]
@@ -534,4 +534,11 @@ def test_get_combinations_respects_custom_limit_less_than_20():
 
     ]
 
+#TC-035 Display complete topping combination
+def test_format_combination_result_displays_complete_topping_combination():
+    combination = ("mushrooms", "pepperoni")
+    count = 3
 
+    result = format_combination_result(combination, count)
+
+    assert result == "mushrooms, pepperoni" - 3"
