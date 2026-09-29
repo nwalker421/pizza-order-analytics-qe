@@ -519,7 +519,7 @@ def test_get_combinations_respects_custom_limit_less_than_20():
         for _ in range(i):
             pizza_orders.append({"toppings": [f"topping{i:02d}"]})
 
-    result = get_top_combinations(pizza_orders, limit-5)
+    result = get_top_combinations(pizza_orders, limit=5)
 
     #Verify the custom limit returns exactly 5 combinations.
     assert lem(result) == 5
