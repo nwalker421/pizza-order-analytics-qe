@@ -33,8 +33,12 @@ def filter_valid_orders(pizza_orders):
 
     return valid_orders
 
-def format_combination_result(combination, count):
+def format_combination_result(combination, count, rank-None):
     toppings = ", ".join(combination)
+    
+    if rank is not None:
+        return f"{rank}.{toppings} - {count}"
+        
     return f"{toppings} - {count}"
 
 def test_get_top_combinations_counts_single_occurence():
