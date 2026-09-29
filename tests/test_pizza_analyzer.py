@@ -425,3 +425,30 @@ def test_get_combinations_applies_default_limit_of_20():
 
 #Verify the default maximum is 20
     assert len(result) == 20
+
+
+#TC-032 Select correct Top 20 from larger dataset
+def test_get_combinations_select_correct_top_20_from_50():
+    pizza_orders = []
+
+#Create 50 unique combinations with known frequencies
+#topping01 appears once, topping02 twice,...topping 50 fifty times
+for i in range(1, 51):
+    pizza_orders.append({"toppings": [f"topping{i:02d}"]})
+
+#Reverse the source order so results cannot depend on encounter order
+pizza_orders.reverse()
+
+result = get_top_combinations(pizza_orders)
+
+#Verify only 20 combinations are returned
+assert len(result) == 20
+
+#The 20 highest frequncy combinations must be topping50 through topping31
+expected = [
+    ((f"topping{i:02d}",), i)
+    for i in range(50, 30, -1)
+
+]
+
+assert result == expected
