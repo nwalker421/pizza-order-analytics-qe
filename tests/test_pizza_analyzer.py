@@ -526,11 +526,11 @@ def test_get_combinations_respects_custom_limit_less_than_20():
 
     #Verify the five highest-frequency combinations are returned in rank order.
     assert result == [
-        (("topping10",), 10),
-        (("topping9",), 9),
-        (("topping8",), 8),
-        (("topping7",), 7),
-        (("topping6",), 6),
+        (("toppings10",), 10),
+        (("toppings9",), 9),
+        (("toppings8",), 8),
+        (("toppings7",), 7),
+        (("toppings6",), 6),
 
     ]
 
