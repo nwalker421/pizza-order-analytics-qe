@@ -435,7 +435,7 @@ def test_get_combinations_select_correct_top_20_from_50():
 #topping01 appears once, topping02 twice,...topping 50 fifty times
 for i in range(1, 51):
     for _ in range(i):
-    pizza_orders.append({"toppings": [f"topping{i:02d}"]})
+        pizza_orders.append({"toppings": [f"topping{i:02d}"]})
 
 #Reverse the source order so results cannot depend on encounter order
 pizza_orders.reverse()
