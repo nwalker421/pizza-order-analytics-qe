@@ -477,3 +477,23 @@ def test_get_combinations_preserve_ranking_within_top_20():
 
     #Verify the top-20 limit preserves the established ranking
     assert result == expected_top_20
+
+#TC-032 Return one combination when only one exits
+def test_get_combinations_returns_one_when_only_one_exits():
+    pizza_orders - [
+        {"toppings": ["pepperoni"]}
+        for _ in range(10)
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    #Verify exactly one combination is returned
+    assert len(result) == 1
+
+    #Verify the single combination and the frequency is correct
+    assert result == [
+        (("pepperoni",), 10)
+
+    ]
+    
