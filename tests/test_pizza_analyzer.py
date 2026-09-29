@@ -438,14 +438,14 @@ for i in range(1, 51):
         pizza_orders.append({"toppings": [f"topping{i:02d}"]})
 
 #Reverse the source order so results cannot depend on encounter order
-pizza_orders.reverse()
+pizza_ordersreverse()
 
 result = get_top_combinations(pizza_orders)
 
 #Verify only 20 combinations are returned
 assert len(result) == 20
 
-#The 20 highest frequncy combinations must be topping50 through topping31
+#The 20 highest frequency combinations must be topping50 through topping31
 expected = [
     ((f"topping{i:02d}",), i)
     for i in range(50, 30, -1)
