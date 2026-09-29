@@ -513,9 +513,9 @@ def test_get_combinations_return_empty_results_when_no_valid_combinations_exist(
 #TC-034 Verify custom limit less than 20
 def test_get_combinations_respects_custom_limit_less_than_20():
     pizza_orders = []
-
+   
     #Create 10 unique combinations with known frequencies
-     for i in range(1, 11):
+    for i in range(1, 11):
         for _ in range(i):
             pizza_orders.append({"toppings": [f"topping{i:02d}"]})
 
