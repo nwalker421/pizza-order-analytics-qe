@@ -542,3 +542,12 @@ def test_format_combination_result_displays_complete_topping_combination():
     result = format_combination_result(combination, count)
 
     assert result == "mushrooms, pepperoni - 3"
+
+#TC-066 Display calculated order frequency
+def test_format_combination_result_displays_calculated_order_frequency():
+    combination = ("mushrooms", "pepperoni")
+    count = 27
+
+    result = format_combination_result(combination, count)
+
+    assert result == "mushrooms, pepperoni - 27"
