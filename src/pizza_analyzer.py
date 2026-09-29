@@ -33,7 +33,7 @@ def filter_valid_orders(pizza_orders):
 
     return valid_orders
 
-def format_combination_result(combination, count, rank-None):
+def format_combination_result(combination, count, rank=None):
     toppings = ", ".join(combination)
     
     if rank is not None:
