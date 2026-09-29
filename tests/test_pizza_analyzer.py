@@ -522,15 +522,15 @@ def test_get_combinations_respects_custom_limit_less_than_20():
     result = get_top_combinations(pizza_orders, limit=5)
 
     #Verify the custom limit returns exactly 5 combinations.
-    assert lem(result) == 5
+    assert len(result) == 5
 
     #Verify the five highest-frequency combinations are returned in rank order.
     assert result == [
-        (("toppings10",), 10),
-        (("toppings9",), 9),
-        (("toppings8",), 8),
-        (("toppings7",), 7),
-        (("toppings6",), 6),
+        (("topping10",), 10),
+        (("topping9",), 9),
+        (("topping8",), 8),
+        (("topping7",), 7),
+        (("topping6",), 6),
 
     ]
 
