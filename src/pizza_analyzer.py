@@ -37,7 +37,7 @@ def format_combination_result(combination, count, rank=None):
     toppings = ", ".join(combination)
     
     if rank is not None:
-        return f"{rank}.{toppings} - {count}"
+        return f"{rank}. {toppings} - {count}"
         
     return f"{toppings} - {count}"
 
