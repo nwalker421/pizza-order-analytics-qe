@@ -510,4 +510,28 @@ def test_get_combinations_return_empty_results_when_no_valid_combinations_exist(
     #Verify the result contains zero items
     assert len(result) == 0
 
-    
+#TC-034 Verify custom limit less than 20
+def test_get_combinations_respects_custom_limit_less_than_20():
+    pizza_orders = []
+
+    #Create 10 unique combinations with known frequencies
+     for i in range(1, 11):
+        for _ in range(i):
+            pizza_orders.append({"toppings": [f"topping{i:02d}"]})
+
+    result = get_top_combinations(pizza_orders, limit-5)
+
+    #Verify the custom limit returns exactly 5 combinations.
+    assert lem(result) == 5
+
+    #Verify the five highest-frequency combinations are returned in rank order.
+    assert result == [
+        (("toppings10",), 10),
+        (("toppings9",), 9),
+        (("toppings8",), 8),
+        (("toppings7",), 7),
+        (("toppings6",), 6),
+
+    ]
+
+
