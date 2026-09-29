@@ -552,7 +552,7 @@ def test_format_combination_result_displays_calculated_order_frequency():
 
     assert result == "mushrooms, pepperoni - 27"
 
-TC-037 Display sequential rankings beginning at 1
+#TC-037 Display sequential rankings beginning at 1
 def test_format_combination_result_displays_sequential_rankings():
     combinations = [
         (("pepperoni",), 27),
