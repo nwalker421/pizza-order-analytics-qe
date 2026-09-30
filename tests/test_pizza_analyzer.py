@@ -586,3 +586,17 @@ def test_format_ranked_results_display_maximum_20_results():
 
     assert len(formatted_results) == 20
 
+#TC-039 Display fewer than 20 results when fewer are available
+def test_format_ranked_results_display_all_when_fewer_than_20():
+    results = [
+        ((f"topping{i:02d}",), i)
+        for i in range(7, 0, -1)
+
+    ]
+
+    formatted_results = format_ranked_results(results)
+
+    assert len(formatted_results) == 7
+    assert formatted_resullts[0] == "1. topping07 -7"
+    assert formatted_results[-1] == "7. topping01 -1"
+
