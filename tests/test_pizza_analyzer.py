@@ -597,6 +597,6 @@ def test_format_ranked_results_display_all_when_fewer_than_20():
     formatted_results = format_ranked_results(results)
 
     assert len(formatted_results) == 7
-    assert formatted_results[0] == "1. topping07 -7"
-    assert formatted_results[-1] == "7. topping01 -1"
+    assert formatted_results[0] == "1. topping07 - 7"
+    assert formatted_results[-1] == "7. topping01 - 1"
 
