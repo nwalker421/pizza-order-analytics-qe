@@ -582,7 +582,7 @@ def test_format_ranked_results_display_maximum_20_results():
 
     ]
 
-    formatted_results = format_rankedresults(results)
+    formatted_results = format_ranked_results(results)
 
     assert len(formatted_results) == 20
 
