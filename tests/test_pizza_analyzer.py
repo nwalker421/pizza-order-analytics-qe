@@ -600,3 +600,22 @@ def test_format_ranked_results_display_all_when_fewer_than_20():
     assert formatted_results[0] == "1. topping07 - 7"
     assert formatted_results[-1] == "7. topping01 - 1"
 
+#TC-040 Preserve deterministic order in displayed results
+def test_format_ranked_results_preserves_deterministic_order():
+    results = [
+        (("cheese",), 5),
+        (("mushrooms",), 5),
+        (("pepperoni",), 5,
+
+    ]
+
+    formatted_results = format_ranked_results(results)
+
+    assert formatted_results == [
+        "1. cheese - 5",
+        "2. mushrooms - 5",
+        "3. pepperoni - 5",
+
+    ]
+    
+    
