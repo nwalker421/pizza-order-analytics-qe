@@ -608,7 +608,7 @@ def test_format_ranked_results_preserves_deterministic_order():
         (("pepperoni",), 5,
 
     ]
-
+    
     formatted_results = format_ranked_results(results)
 
     assert formatted_results == [
