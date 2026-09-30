@@ -578,7 +578,7 @@ def test_format_combination_result_displays_sequential_rankings():
 def test_format_ranked_results_display_maximum_20_results():
     results = [
         ((f"topping{i:02d}",), i)    
-        for i in range(25, 0, 1)
+        for i in range(25, 0, -1)
 
     ]
 
