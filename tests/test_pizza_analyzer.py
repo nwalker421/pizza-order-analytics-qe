@@ -605,7 +605,7 @@ def test_format_ranked_results_preserves_deterministic_order():
     results = [
         (("cheese",), 5),
         (("mushrooms",), 5),
-        (("pepperoni",), 5,
+        (("pepperoni",), 5),
 
     ]
     
