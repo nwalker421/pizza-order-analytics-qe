@@ -618,4 +618,15 @@ def test_format_ranked_results_preserves_deterministic_order():
 
     ]
     
-    
+
+#TC-041 Display clear message when no results exist
+def test_format_ranked_results_displays_message_when_no_results_exist():
+    results = []
+
+    formatted_results = format_ranked_results(results)
+
+    assert formatted_results == [
+        "No topping combinations available for analysis."
+
+    ]
+        
