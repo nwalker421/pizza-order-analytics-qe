@@ -53,7 +53,7 @@ def test_get_top_combinations_counts_single_occurence():
 
 def format_ranked_results(results):
     if not results:
-        return["No topping combinations available for analysis."]
+        return ["No topping combinations available for analysis."]
 
     return [
         format_combination_result(combination, count, rank)
