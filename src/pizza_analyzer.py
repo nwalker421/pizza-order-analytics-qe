@@ -57,7 +57,7 @@ def format_ranked_results(results):
 
     return [
         format_combination_result(combination, count, rank)
-        for rank, (combination, count) in enumerated(results[:20], start=1)
+        for rank, (combination, count) in enumerate(results[:20], start=1)
 
     ]
 
