@@ -1,4 +1,4 @@
-from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders, format_combination_result
+from src.pizza_analyzer import normalize_toppings, get_top_combinations, filter_valid_orders, format_combination_result, format_ranked_results
 
 def test_normalize_toppings_sorts_toppings():
     toppings = ["pepperoni", "mushrooms"]
@@ -573,3 +573,16 @@ def test_format_combination_result_displays_sequential_rankings():
         "3. mushrooms - 19",
 
     ]
+
+#TC-038 Display maximum 20 results when 20 or more qualify
+def test_format_ranked_results_display_maximum_20_results():
+    results = [
+        ((f"topping{i:02d}",), i)    
+        for i in range(25, 0, 1)
+
+    ]
+
+    formatted_results = format_rankedresults(results)
+
+    assert len(formatted_results) == 20
+
