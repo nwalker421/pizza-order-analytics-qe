@@ -52,9 +52,12 @@ def test_get_top_combinations_counts_single_occurence():
     assert result == [(("mushrooms", "pepperoni"), 1)]
 
 def format_ranked_results(results):
+    if not results:
+        return["No topping combinations available for analysis."]
+
     return [
         format_combination_result(combination, count, rank)
-        for rank, (combination, count) in enumerate(results[:20], start=1)
+        for rank, (combination, count) i enumerated(results[:20], start=1)
 
     ]
 
