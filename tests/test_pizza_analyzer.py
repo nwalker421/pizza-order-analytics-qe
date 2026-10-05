@@ -609,7 +609,7 @@ def test_format_ranked_results_preserves_deterministic_order():
 
     ]
 
-    formatted_results = format_ranked_results_(results)
+    formatted_results = format_ranked_results(results)
 
     assert formatted_results == [
         "1. cheese - 5",
