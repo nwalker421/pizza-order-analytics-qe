@@ -139,8 +139,6 @@ shall be ranked:
 2. mushrooms    5
 3. pepperoni    5
 
-## Testing Note: This last AC is important for automated testing. We don't want two correct executions producing different rankings simply because two pizzas were ordered the same number of times.
-
 REQ-005 — Return the Top 20 Topping Combinations
 
 Object Family: Pizza Order Analytics
@@ -201,15 +199,10 @@ Under the default configuration, the displayed result shall contain no more than
 AC-006.6 — No Results Display
 Given that no valid topping combinations are available for reporting, when ranked results are produced, the application shall display a clear message indicating that no topping combinations are available rather than displaying an empty or misleading ranked list.
 
-For example:
-
+For example, when no valid combinations are available:
 No topping combinations available for analysis.
 
-For example, the output structure may be:
-For example, the output structure may be:
-
-Top 20 Pizza Topping Combinations
-
+For example, normal ranked results maybe displayed as:
 Rank   Topping Combination                Orders
 --------------------------------------------------
 1      pepperoni, mushrooms                  27
@@ -217,15 +210,16 @@ Rank   Topping Combination                Orders
 3      pepperoni, sausage                    19
 ...
 20     mushrooms, onions                      4
-2. Baseline Scope
+
+## 2. Baseline Scope
 
 For Version 1.0, these six requirements establish the functional baseline:
 
-ID	Requirement	Area
-REQ-001	Process Pizza Order Data	Data Processing
-REQ-002	Normalize Topping Combinations	Topping Processing
-REQ-003	Calculate Topping Combination Frequency	Order Analysis
-REQ-004	Rank Topping Combinations	Order Analysis
-REQ-005	Return Top 20 Topping Combinations	Results Processing
-REQ-006	Produce Ranked Results	Results Reporting
+## ID	      Requirement	                                Area
+REQ-001	    Process Pizza Order Data	                  Data Processing
+REQ-002	    Normalize Topping Combinations	            Topping Processing
+REQ-003	    Calculate Topping Combination Frequency	    Order Analysis
+REQ-004	    Rank Topping Combinations	                  Order Analysis
+REQ-005	    Return Top 20 Topping Combinations	        Results Processing
+REQ-006	    Produce Ranked Results	                    Results Reporting
 
