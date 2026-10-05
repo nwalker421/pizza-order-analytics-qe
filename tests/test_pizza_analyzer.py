@@ -623,7 +623,7 @@ def test_format_ranked_results_displays_single_and_multi_topping_combinations():
     results = [
         (("cheese",), 5),
         (("mushrooms", "pepperoni"), 3),
-        (
+        
     ]
     
     formatted_results = format_ranked_results(results)
