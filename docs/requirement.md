@@ -139,8 +139,6 @@ shall be ranked:
 2. mushrooms    5
 3. pepperoni    5
 
-## Testing Note: This last AC is important for automated testing. We don't want two correct executions producing different rankings simply because two pizzas were ordered the same number of times.
-
 REQ-005 — Return the Top 20 Topping Combinations
 
 Object Family: Pizza Order Analytics
