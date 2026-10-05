@@ -630,3 +630,22 @@ def test_format_ranked_results_displays_message_when_no_results_exist():
 
     ]
         
+#TC-042 Return all results for exactly 20 unique combinations
+def test_format_top_combinations_returns_all_20_when_exactly_20_exits():
+    pizza_orders = [
+        {"toppings": [f"topping{i:02d}"]}
+        for i in range(1, 21)
+
+    ]
+
+    result = get_top_combinations(pizza_orders)
+
+    assert len(result) == 20
+
+    expected = [
+        ((f"topping{i:02d}",), 1)
+        for i in range(1,21)
+
+    ]
+
+    assert result == expected
